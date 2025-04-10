@@ -16,6 +16,15 @@ BOT_NAME = "discountscraper"
 SPIDER_MODULES = ["discountscraper.spiders"]
 NEWSPIDER_MODULE = "discountscraper.spiders"
 
+DOWNLOAD_HANDLERS = {
+    'http': 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+    'https': 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+}
+
+# Other Playwright settings
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+CONCURRENT_REQUESTS = 16
+
 ###############################################################################
 # FEEDS & OUTPUT
 ###############################################################################
